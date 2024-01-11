@@ -10,6 +10,15 @@
         Create New User
     </button> --}}
     <div class="flex flex-col justify-center items-center mt-8">
+        @if (session('message'))
+            <div class="bg-green-500 text-white rounded-md p-4 shadow-md animate__animated animate__fadeIn">
+                {{ session('message') }}
+            </div>
+        @endif
+    </div>
+    
+
+    <div class="flex flex-col justify-center items-center mt-8">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96" wire:submit.prevent="createNewUser"
             action="">
             <div class="mb-4">
@@ -61,9 +70,26 @@
 
     <hr class="mt-3">
 
-    @foreach ($users as $user)
-        <h3>{{ $user->name }}</h3>
-        <p>{{ $user->email }}</p>
-        <p>{{ $user->password }}</p>
-    @endforeach
+    <div class="container mx-auto p-4">
+        <div class="overflow-x-auto">
+            <table class="table-auto min-w-full border border-collapse border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 bg-gray-800 text-white">Name</th>
+                        <th class="px-4 py-2 bg-gray-800 text-white">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                        <tr class="hover:bg-gray-100">
+                            <td class="border px-4 py-2">{{ $user->name }}</td>
+                            <td class="border px-4 py-2">{{ $user->email }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 </div>
