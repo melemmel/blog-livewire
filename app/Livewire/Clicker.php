@@ -5,9 +5,11 @@ namespace App\Livewire;
 use App\Models\User;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Clicker extends Component
 {
+    use WithPagination;
     // public function handleClick(){
     //     dump("clicked");
     // }
@@ -26,7 +28,7 @@ class Clicker extends Component
     public function createNewUser()
     {
 
-        // $this->validate([ // First Way
+        // $validated = $this->validate([ // First Way
         //     'name' => 'required|min:2|max:50',
         //     'email' => 'required|email|unique:users',
         //     'password' => 'required|min:5',
@@ -48,7 +50,7 @@ class Clicker extends Component
     {
         $title = "Hello"; // Other method
 
-        $users = User::all();
+        $users = User::paginate(5);
 
         return view('livewire.clicker', [
             'title' => $title,
