@@ -11,13 +11,17 @@ class Clicker extends Component
     //     dump("clicked");
     // }
     
-    public $title_hello = "Jessa Mae"; // Othe method
+    // public $title_hello = "Jessa Mae"; // Othe method
+    
+    public $name;
+    public $email;
+    public $password;
 
     public function createNewUser(){
         User::create([
-            'name' => 'John Doe1',
-            'email' => 'john12@example.com',
-            'password' => '123'
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password
         ]);
     }
     public function render()
