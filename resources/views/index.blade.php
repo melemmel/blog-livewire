@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="head" class="flex border-blue-800 border-t-2">
+    {{-- <div id="head" class="flex border-blue-800 border-t-2">
         <div class="w-full">
             <header class="flex bg-white justify-between h-20 border-b border-b-gray-200 items-center px-6">
                 <div id="left-header" class="">
@@ -24,9 +24,12 @@
                 </div>
             </header>
         </div>
-    </div>
+    </div> --}}
     <div id="content" class="mx-auto" style="max-width:500px;">
-        <livewire:todo-list />
+        {{-- <livewire:todo-list /> --}}
+
+        <livewire:register/>
+        <livewire:user-list lazy />
     </div>
 
 </body>
